@@ -1,0 +1,33 @@
+With all mv streams (a - trials, b - sessions)
+
+This info is sorted 3 ways in the code (current state): 
+	1. 1 mean array, all data is averaged across sessions and trials into 1 stream of data
+	2. array in format (stream len x b x a) e.g. (16275, 4, 15); these are all data streams in a 3D array
+	3. array in format (stream len x (a x b)) e.g. (16275, 60); these are all data streams in a 2D array; 
+	   this obscures which session each stream belongs to, but all can be easily averaged into one
+
+How to properly z-score and find standard error bars: 
+	1. get a mean stream for each session; put in array of size (stream len x b); this means that all trials
+	   within a session will be averaged together - Done
+	2. z-score these streams - Done
+	3. get a standard error for corresponding points (across sessions)
+	4. average the z-scored streams 
+	5. plot the averaged stream w/ the error bars
+
+
+
+
+
+
+How to set up data for scatterplotting: ODNE
+
+	1. get all data in a python list containing 2D np.arrays; the list length will be a; the contained 
+	   np.arrays will be size (stream len x b)
+	2. z-score all streams in all arrays
+	3. get the max of all z-scored streams
+	4. get the peak value of these z-scored streams and average them across sessions (within trial)
+	5. get standard error for corresponding peaks across sessions but within the python list index (this 
+	   way, we get a standard error for each peak within each trial)
+	6. put means, session #, and standard error in size a arrays (len = 15, python list or np.array
+	   should be fine)
+	7. plot the data	
