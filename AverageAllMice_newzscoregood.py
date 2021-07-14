@@ -45,10 +45,10 @@ ARTIFACT = float("inf") # optionally set an artifact rejection level
 #%% In [4] Define functions for data manipulation
 
 # Load all data folders within a parent folder into list called data_sessions
-def load_sessions(path = r"/Users/shivasenthilkumar/Desktop/Robinson_Lab/Scripts/TDT_Scripts/DATA/Large Loom"): 
+def load_sessions(path = r"/Users/shivasenthilkumar/Desktop/Robinson_Lab/Scripts/TDT_Scripts/DATA/Low Light Stim_"): 
 
     folders = os.listdir(path)
-    #folders.remove('.DS_Store')
+    # folders.remove('.DS_Store')
     
     paths = []
     data_sessions = []
